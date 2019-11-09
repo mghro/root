@@ -12,6 +12,8 @@
 
 #include "Math/GenAlgoOptions.h"
 
+#define MATH_NO_PLUGIN_MANAGER
+
 // case of using ROOT plug-in manager
 #ifndef MATH_NO_PLUGIN_MANAGER
 #include "TEnv.h"

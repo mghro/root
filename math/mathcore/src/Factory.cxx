@@ -23,9 +23,9 @@
 
 // uncomment these if you dont want to use the plugin manager
 // but you need to link also  the needed minimization libraries (e.g Minuit and/or Minuit2)
-// #define MATH_NO_PLUGIN_MANAGER
+#define MATH_NO_PLUGIN_MANAGER
 // #define HAS_MINUIT
-// #define HAS_MINUIT2
+#define HAS_MINUIT2
 
 #ifndef MATH_NO_PLUGIN_MANAGER
 // use ROOT Plug-in manager
@@ -133,25 +133,6 @@ ROOT::Math::Minimizer * ROOT::Math::Factory::CreateMinimizer(const std::string &
    if (minimizerType ==  "Fumili2")
       min = new ROOT::Minuit2::Minuit2Minimizer("fumili");
 #endif
-
-#ifdef HAS_MINUIT
-   // use TMinuit
-   if (minimizerType ==  "Minuit" || minimizerType ==  "TMinuit")
-      min = new TMinuitMinimizer(algoType.c_str());
-#endif
-
-#ifdef R__HAS_MATHMORE
-   // use GSL minimizer
-   if (minimizerType ==  "GSL")
-      min = new ROOT::Math::GSLMinimizer(algoType.c_str());
-
-   else if (minimizerType ==  "GSL_NLS")
-      min = new ROOT::Math::GSLNLSMinimizer();
-
-   else if (minimizerType ==  "GSL_SIMAN")
-      min = new ROOT::Math::GSLSimAnMinimizer();
-#endif
-
 
 #ifdef HAS_MINUIT2
    // DEFAULT IS MINUIT2 based on MIGRAD id minuit2 exists

@@ -942,7 +942,7 @@ TF1::~TF1()
    if (fMethodCall) delete fMethodCall;
 
    // this was before in TFormula destructor
-   {
+   if (!TestBit(kNotGlobal)) {
       R__LOCKGUARD(gROOTMutex);
       if (gROOT) gROOT->GetListOfFunctions()->Remove(this);
    }

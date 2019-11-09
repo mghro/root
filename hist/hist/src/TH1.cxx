@@ -585,7 +585,7 @@ TH1::~TH1()
    delete[] fBuffer;
    fBuffer = 0;
    if (fFunctions) {
-      R__WRITE_LOCKGUARD(ROOT::gCoreMutex);
+      //R__WRITE_LOCKGUARD(ROOT::gCoreMutex);
 
       fFunctions->SetBit(kInvalidObject);
       TObject* obj = 0;
